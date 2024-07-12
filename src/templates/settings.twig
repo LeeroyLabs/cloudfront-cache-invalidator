@@ -1,0 +1,25 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+    label: 'Secret Key',
+    instructions: '',
+    id: 'secretKey',
+    name: 'secretKey',
+    on: settings.secretKey
+}) }}
+
+{{ forms.textField({
+    label: 'Api Token',
+    instructions: '',
+    id: 'apiToken',
+    name: 'apiToken',
+    on: settings.apiToken
+}) }}
+
+{{ forms.textField({
+    label: 'Distrib Id',
+    instructions: '',
+    id: 'distribId',
+    name: 'distribId',
+    on: settings.distribId
+}) }}

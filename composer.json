@@ -1,0 +1,58 @@
+{
+    "name": "leeroy/cloudfront-cache-invalidator",
+    "description": "Invalid Cloudfront cache when saving an entry for CraftCMS",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "cloudfront",
+        "cache",
+        "AWS"
+    ],
+    "support": {
+        "docs": "https://github.com/LeeroyLabs/cloudfront-cache-invalidator/blob/main/README.md",
+        "issues": "https://github.com/LeeroyLabs/cloudfront-cache-invalidator/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leeroy agency",
+            "homepage": "https://github.com/LeeroyLabs/"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "craftcms/cms": "^4.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "^4.0",
+        "vlucas/phpdotenv": "^3.0",
+        "craftcms/rector": "dev-main",
+        "aws/aws-sdk-php": "^3.316"
+    },
+    "autoload": {
+        "psr-4": {
+            "leeroy\\cloudfrontcacheinvalidator\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Cloudfront Cache Invalidator",
+        "handle": "cloudfront-cache-invalidator",
+        "developer": "Leeroy agency",
+        "developerUrl": "https://github.com/LeeroyLabs/",
+        "documentationUrl": "https://github.com/LeeroyLabs/cloudfront-cache-invalidator/blob/main/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/LeeroyLabs/cloudfront-cache-invalidator/main/CHANGELOG.md",
+        "class": "leeroy\\cloudfrontcacheinvalidator\\CloudfrontCacheInvalidator"
+    },
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -1,0 +1,17 @@
+{% extends "_layouts/cp" %}
+{% import '_includes/forms' as forms %}
+
+{% set title = 'Cloudfront Cache Invalidator' %}
+{% set fullPageForm = true %}
+
+{% block submitButton %}
+    <div>
+        <button type="submit" class="btn submit">Clear Cache</button>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {{ actionInput('axis-module/admin/invalid-cache') }}
+
+    <p>Invalidate cache for all assets</p>
+{% endblock %}
