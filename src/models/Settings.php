@@ -2,22 +2,16 @@
 
 namespace leeroy\cloudfrontcacheinvalidator\models;
 
-use Craft;
 use craft\base\Model;
-use leeroy\cloudfrontcacheinvalidator\CloudfrontCacheInvalidator;
 
 class Settings extends Model
 {
     // Public Properties
     // =========================================================================
 
-    const ZONE_ID    = '';
-    const ACCOUNT_ID = '';
-    const API_KEY    = '';
-
-    public string $zoneId    = self::ZONE_ID;
-    public string $accountId = self::ACCOUNT_ID;
-    public string $apiKey    = self::API_KEY;
+    public string $secretKey = '';
+    public string $apiToken = '';
+    public string $distribId = '';
 
     // Public Methods
     // =========================================================================
@@ -35,7 +29,7 @@ class Settings extends Model
     public function rules(): array
     {
         return [
-            [['zoneId', 'accountId'], 'required'],
+            [['secretKey', 'apiToken', 'distribId'], 'required'],
         ];
     }
 }

@@ -6,7 +6,7 @@ use craft\web\Controller;
 use leeroy\cloudfrontcacheinvalidator\services\CacheService;
 use yii\web\Response;
 
-class AdminController extends Controller
+class CacheController extends Controller
 {
     /**
      * @var    bool|array Allows anonymous access to this controller's actions.

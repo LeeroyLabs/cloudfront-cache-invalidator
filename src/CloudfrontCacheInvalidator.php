@@ -13,8 +13,8 @@ use craft\web\twig\variables\Cp;
 use craft\web\UrlManager;
 use craft\web\View;
 use leeroy\cloudfrontcacheinvalidator\services\CacheService;
-use leeroy\cloudftontcacheinvalidator\assetbundles\PluginAsset;
-use leeroy\cloudftontcacheinvalidator\models\Settings;
+use leeroy\cloudfrontcacheinvalidator\assetbundles\PluginAsset;
+use leeroy\cloudfrontcacheinvalidator\models\Settings;
 use yii\base\Event;
 use yii\base\InvalidConfigException;
 
@@ -73,10 +73,17 @@ class CloudfrontCacheInvalidator extends Plugin
             Cp::class,
             Cp::EVENT_REGISTER_CP_NAV_ITEMS,
             static function(RegisterCpNavItemsEvent $event) {
-                $event->navItems[] = [
-                    'url' => 'cloudfront-cache-invalidator',
-                    'label' => 'Cloudfront Cache Invalidator',
-                ];
+                $secretKey = CloudfrontCacheInvalidator::$plugin->settings->secretKey;
+                $apiToken = CloudfrontCacheInvalidator::$plugin->settings->apiToken;
+                $distribId = CloudfrontCacheInvalidator::$plugin->settings->distribId;
+                $s3BaseUrl = getenv('S3_BASE_URL') ?? '';
+                $s3BucketRegion = getenv('S3_BUCKET_REGION') ?? '';
+                if ($secretKey != '' && $apiToken != '' && $distribId != '' && $s3BaseUrl && $s3BucketRegion) {
+                    $event->navItems[] = [
+                        'url' => 'cloudfront-cache-invalidator',
+                        'label' => 'Cloudfront Cache Invalidator',
+                    ];
+                }
             }
         );
 
@@ -86,7 +93,7 @@ class CloudfrontCacheInvalidator extends Plugin
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             static function (RegisterUrlRulesEvent $event) {
                 $event->rules['invalid-cache'] = 'cloudfront-cache-invalidator/cache/invalid-cache';
-                $event->rules['cloudfront-cache-invalidator'] = 'cloudfront-cache-invalidator/cache/cloudfront-cache-invalidator';
+                $event->rules['cloudfront-cache-invalidator'] = 'cloudfront-cache-invalidator/cache/cloudflare-cache-invalidator';
             }
         );
 

@@ -17,10 +17,10 @@ class CacheService extends Component
      * @return bool
      * @throws JsonException
      */
-    public function invalidCache(string $url = ''):bool
+    public function invalidCache(string $url = ''): bool
     {
         $secretKey = CloudfrontCacheInvalidator::$plugin->settings->secretKey;
-        $apiToken  = CloudfrontCacheInvalidator::$plugin->settings->apiToken;
+        $apiToken = CloudfrontCacheInvalidator::$plugin->settings->apiToken;
         $distribId = CloudfrontCacheInvalidator::$plugin->settings->distribId;
         $path = '/*';
 
@@ -31,10 +31,10 @@ class CacheService extends Component
         $caller = $this->_generateRandomString(16);
 
         $cloudFront = new CloudFrontClient([
-            'version'     => 'latest',
-            'region'      =>  getenv('S3_REGION'),
+            'version' => 'latest',
+            'region' => getenv('S3_REGION') ?? '',
             'credentials' => [
-                'key'    => $apiToken,
+                'key' => $apiToken,
                 'secret' => $secretKey
             ]
         ]);
@@ -57,7 +57,7 @@ class CacheService extends Component
      * @param int $length
      * @return string
      */
-    private function _generateRandomString(int $length = 10):string
+    private function _generateRandomString(int $length = 10): string
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
