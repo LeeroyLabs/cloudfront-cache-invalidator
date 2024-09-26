@@ -3,20 +3,20 @@
 namespace leeroy\cloudfrontcacheinvalidator;
 
 use Craft;
+use craft\base\Plugin;
 use craft\elements\Asset;
+use craft\events\ModelEvent;
+use craft\events\RegisterCpNavItemsEvent;
 use craft\events\RegisterUrlRulesEvent;
 use craft\events\TemplateEvent;
+use craft\web\twig\variables\Cp;
 use craft\web\UrlManager;
 use craft\web\View;
+use leeroy\cloudfrontcacheinvalidator\services\CacheService;
 use leeroy\cloudftontcacheinvalidator\assetbundles\PluginAsset;
+use leeroy\cloudftontcacheinvalidator\models\Settings;
 use yii\base\Event;
 use yii\base\InvalidConfigException;
-use craft\base\Plugin;
-use craft\events\RegisterCpNavItemsEvent;
-use craft\web\twig\variables\Cp;
-use leeroy\cloudfrontcacheinvalidator\services\CacheService;
-use leeroy\cloudftontcacheinvalidator\models\Settings;
-use craft\events\ModelEvent;
 
 class CloudfrontCacheInvalidator extends Plugin
 {
@@ -109,7 +109,7 @@ class CloudfrontCacheInvalidator extends Plugin
      *
      * @return Settings
      */
-    protected function createSettingsModel(): Settings
+    public function createSettingsModel(): ?craft\base\Model
     {
         return new Settings();
     }
