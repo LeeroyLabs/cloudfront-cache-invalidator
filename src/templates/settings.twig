@@ -5,7 +5,8 @@
     instructions: '',
     id: 'secretKey',
     name: 'secretKey',
-    on: settings.secretKey
+    on: settings.secretKey,
+    value: settings.secretKey ?? ''
 }) }}
 
 {{ forms.textField({
@@ -13,7 +14,8 @@
     instructions: '',
     id: 'apiToken',
     name: 'apiToken',
-    on: settings.apiToken
+    on: settings.apiToken,
+    value: settings.apiToken ?? ''
 }) }}
 
 {{ forms.textField({
@@ -21,5 +23,6 @@
     instructions: '',
     id: 'distribId',
     name: 'distribId',
-    on: settings.distribId
+    on: settings.distribId,
+    value: settings.distribId ?? ''
 }) }}
