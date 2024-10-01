@@ -23,16 +23,16 @@ class CacheService extends Component
         $apiToken = CloudfrontCacheInvalidator::$plugin->settings->apiToken;
         $distribId = CloudfrontCacheInvalidator::$plugin->settings->distribId;
 
-        if (substr($secretKey, 0, 1) == '$' && getenv('SMTP_CLOUDFRONT_SECRET_KEY')) {
-            $secretKey = getenv('SMTP_CLOUDFRONT_SECRET_KEY');
+        if (substr($secretKey, 0, 1) == '$' && getenv('CLOUDFRONT_SECRET_KEY')) {
+            $secretKey = getenv('CLOUDFRONT_SECRET_KEY');
         }
 
-        if (substr($apiToken, 0, 1) == '$' && getenv('SMTP_CLOUDFRONT_API_TOKEN')) {
-            $apiToken = getenv('SMTP_CLOUDFRONT_API_TOKEN');
+        if (substr($apiToken, 0, 1) == '$' && getenv('CLOUDFRONT_API_TOKEN')) {
+            $apiToken = getenv('CLOUDFRONT_API_TOKEN');
         }
 
-        if (substr($distribId, 0, 1) == '$' && getenv('SMTP_CLOUDFRONT_DISTRIB_ID')) {
-            $distribId = getenv('SMTP_CLOUDFRONT_DISTRIB_ID');
+        if (substr($distribId, 0, 1) == '$' && getenv('CLOUDFRONT_DISTRIB_ID')) {
+            $distribId = getenv('CLOUDFRONT_DISTRIB_ID');
         }
 
         $path = '/*';
