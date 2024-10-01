@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## 1.0.2 - 2024-09-30
 ### Added
-- CLOUDFRONT_SECRET_KEY, CLOUDFRONT_API_TOKEN and CLOUDFRONT_DISTRIB_ID renamed
+- S3_REGION renamed
 
 ## 1.0.1 - 2024-09-30
 ### Added

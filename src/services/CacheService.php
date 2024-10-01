@@ -45,7 +45,7 @@ class CacheService extends Component
 
         $cloudFront = new CloudFrontClient([
             'version' => 'latest',
-            'region' => getenv('S3_REGION') ?? '',
+            'region' => getenv('S3_BUCKET_REGION') ?? 'ca-central-1',
             'credentials' => [
                 'key' => $apiToken,
                 'secret' => $secretKey

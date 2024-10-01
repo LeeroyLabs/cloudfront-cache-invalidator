@@ -2,7 +2,7 @@
     "name": "leeroy/cloudfront-cache-invalidator",
     "description": "Invalid Cloudfront cache when saving an entry for CraftCMS",
     "type": "craft-plugin",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "keywords": [
         "craft",
         "cms",
