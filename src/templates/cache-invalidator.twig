@@ -12,6 +12,30 @@
 
 {% block content %}
     {{ actionInput('cloudfront-cache-invalidator/cache/invalid-cache') }}
-
-    <p>Invalidate cache for all assets</p>
+    <h2>Invalidate cache for all assets</h2>
+    <script>
+        const notification = document.querySelector('.notification-popup');
+        if (notification) {
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+    <style type="text/css">
+        .notification-popup {
+            top: 20px;
+            right: 20px;
+            background-color: #0c9e70;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+    </style>
+    {% if craft.app.session.hasFlash('notice') %}
+        <div class="notification-popup">
+            {{ craft.app.session.getFlash('notice') }}
+        </div>
+    {% endif %}
 {% endblock %}

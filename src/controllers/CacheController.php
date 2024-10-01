@@ -17,7 +17,10 @@ class CacheController extends Controller
 
     public function actionInvalidCache()
     {
-        (new CacheService)->invalidCache();
+        $success = (new CacheService)->invalidCache();
+        if ($success) {
+            Craft::$app->getSession()->setFlash('notice', 'Le cache a été vidé.');
+        }
     }
 
     /**
